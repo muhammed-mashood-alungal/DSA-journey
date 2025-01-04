@@ -21,16 +21,21 @@ class LinkedList {
         }
     }
 
+    
+
 
     addinHead(value) {
         const newNode = new Node(value)
         newNode.next = this.head
+        if(this.head == null){
+            this.tail = newNode
+        }
         this.head = newNode
-        this.tail = newNode
+        
     }
 
 
-    ///For adding a value at a specific Position
+    /// For adding a value at a specific Position
     addInPos(value, pos) {
         if (pos < 1) {
             console.log("Invalid Position")
@@ -83,6 +88,29 @@ class LinkedList {
         newNode.next= temp.next
         temp.next = newNode
     }
+    // Add A node after a value
+    addAfter(value , after){
+        const newNode = new Node(value)
+        
+        let temp = this.head
+
+        while(temp != null && temp.data != after){
+            temp = temp.next
+        }
+
+        if(temp == null){
+           return console.log("Invalid Value")
+        }
+
+        newNode.next = temp.next
+        temp.next = newNode
+        if(newNode.next == null){
+            this.tail = newNode
+        }
+    }
+
+
+
     /// Exmaple for Both Traversal and Printing Linked List
     display() {
         let temp = this.head
@@ -99,6 +127,8 @@ newlist.addinTail(23)
 newlist.addinTail(43)
 newlist.addInPos(100, 2)
 newlist.addBefore(500,43 )
+newlist.addAfter(10000,43)
+
 
 
 newlist.display()

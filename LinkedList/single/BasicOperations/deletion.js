@@ -39,8 +39,7 @@ class LinkedList {
 
     removeFirstNode(){
         if(this.head == null) return 
-        let temp = this.head.next
-        this.head = temp
+        this.head = this.head.next
     }
 
     removeValueAt(value){   
@@ -61,6 +60,9 @@ class LinkedList {
         }
 
          temp.next = temp.next.next
+         if(temp.next == null){
+            this.tail = temp
+         }
     }
 
     removeLastNode(){
@@ -79,6 +81,7 @@ const newlist = new LinkedList()
 
 newlist.arrayToLinkedList([1, 2, 3, 4, 5])
 // newlist.removeFirstNode()
-// newlist.removeValueAt(5)
+newlist.removeValueAt(5)
 // newlist.removeLastNode()
 newlist.display()
+console.log(newlist.tail)

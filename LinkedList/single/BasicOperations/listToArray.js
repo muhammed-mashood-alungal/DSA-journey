@@ -26,14 +26,17 @@ class List {
             this.insertAtEnd(x)
         }
     }
-    display() {
-        let temp = this.head
-        while (temp != null) {
-            console.log(temp.data)
-            temp = temp.next
-        }
+
+    listToArray(){
+       let result =[]
+       let temp = this.head
+       while(temp != null){
+        result.push(temp.data)
+        temp = temp.next
+       }
+       return result
     }
 }
 const list = new List()
 list.arrayToLinkedList([1, 2, 3, 4, 5])
-list.display()
+console.log(list.listToArray())
