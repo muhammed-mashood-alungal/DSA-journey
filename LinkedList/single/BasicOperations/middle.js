@@ -39,7 +39,7 @@ class List {
         let slow = this.head
         let fast = this.head
 
-        while(fast != null && fast.next != null){
+        while(fast.next!= null && fast.next.next != null){
             slow = slow.next
             fast = fast.next.next
         }
@@ -70,7 +70,7 @@ class List {
 
 }
 const list = new List()
-list.arrayToLinkedList([1, 2, 1])
-//console.log(list.findMiddle())
-list.findAndDeleteMiddle()
-list.display()
+list.arrayToLinkedList([1, 2, 3 , 4])
+console.log(list.findMiddle())
+//list.findAndDeleteMiddle()
+//list.display()

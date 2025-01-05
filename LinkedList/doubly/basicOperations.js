@@ -37,6 +37,8 @@ class DDL {
         this.tail = newNode
 
     }
+
+
     //Insertion at a specific position in Doubly Linked List
     insertAt(value, pos) {
         const newNode = new Node(value)
@@ -50,7 +52,6 @@ class DDL {
             if (this.tail == null) {
                 this.tail = newNode
             }
-
             return
         }
 
@@ -73,8 +74,63 @@ class DDL {
         } else {
             this.tail = newNode
         }
+    }
+
+    // Insert a node after a value
+    insertAfter(value,after){
+        const newNode = new Node(value)
+        if(this.head == null){
+            this.head = newNode
+            this.tail = newNode
+            return
+        }
+
+        let temp = this.head
+        while(temp && temp.data != after){
+            temp = temp.next
+        }
+
+        if(!temp){
+            return console.log("invalid input")
+        }
+
+        newNode.prev = temp
+        newNode.next = temp.next
+        temp.next = newNode
+        if(newNode.next == null){
+            this.tail = newNode
+        }else{
+            newNode.next.prev = newNode
+        }
+    }
 
 
+    // Insert Node Before a specific value
+    insertBefore(value,before){
+        const newNode = new Node(value)
+        if(this.head == null){
+            this.head = newNode
+            this.tail = newNode
+            return
+        }
+
+        let temp = this.head
+        while(temp && temp.data != before){
+            temp = temp.next
+        }
+
+        if(!temp){
+            return console.log("invalid input")
+        }
+
+        newNode.next = temp
+        newNode.prev = temp.prev
+        if(temp.prev){
+            temp.prev.next = newNode
+        }else{
+            this.head = newNode
+        }
+        temp.prev = newNode
     }
 
     /// Deletion of a node at the beginning of Doubly Linked List
@@ -87,11 +143,36 @@ class DDL {
         }
         this.head = this.head.next
     }
+    // Delete a node by value
+    deleteByValue(value){
+        if(this.head == null) return
+
+        let temp = this.head
+
+        while(temp && temp.data != value){
+            temp = temp.next
+        }
+
+        if(!temp){
+            return console.log("Invalid Input")
+        }
+
+        if(temp.prev){
+            temp.prev.next = temp.next
+        }else{
+            this.head = this.head.next
+        }
+        if(temp.next){
+            temp.next.prev = temp.prev
+        }else{
+            this.tail = this.tail.prev
+        }
+    }
 
     /// Deletion of a node at the end of Doubly Linked List
     deleteAtEnd() {
         if (this.tail == null) {
-            console.log("NOthing to remove")
+            console.log("Nothing to remove")
             return
         }
         if (this.tail.prev == null) {
@@ -109,6 +190,8 @@ class DDL {
         if (pos == 1) {
             if (this.head.next) {
                 this.head.next.prev = null
+            }else{
+                this.tail = null
             }
             this.head = this.head.next
             return
@@ -129,12 +212,10 @@ class DDL {
         }
         if(curr.next){
             curr.next.prev = curr.prev
-        }
-        if (curr.next == null) {
+        }else{
             this.tail = curr.prev;
+
         }
-
-
     }
 
     /// For check whether is the value exists or not
@@ -148,7 +229,6 @@ class DDL {
         } else {
             return true
         }
-
     }
 
 
@@ -165,7 +245,6 @@ class DDL {
 
     display() {
         let curr = this.head
-
         while (curr !== null) {
             console.log(curr.data)
             curr = curr.next
@@ -173,6 +252,18 @@ class DDL {
 
     }
 
+    reverseDisplay(){
+        let curr = this.tail
+
+        while(curr != null){
+            console.log(curr.data)
+            curr = curr.prev
+        }
+
+    }
+    
+
+   
 
 }
 
@@ -190,3 +281,5 @@ list.display()
 list.deleteAt(3)
 console.log("Length of the list is : " + list.length())
 list.display()
+console.log("========================")
+list.reverseDisplay()
