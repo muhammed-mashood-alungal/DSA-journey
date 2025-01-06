@@ -14,6 +14,7 @@ class LinkedList {
         const newNode = new Node(value)
         if (this.head == null) {
             this.head = newNode
+            this.tail = newNode
             return
         }
         let last = this.head
@@ -21,6 +22,7 @@ class LinkedList {
             last = last.next
         }
         last.next = newNode
+        this.tail = newNode
     }
 
     arrayToLinkedList(arr) {
@@ -51,10 +53,10 @@ class LinkedList {
             return
         }
         let temp = this.head
-        while (temp != null && temp.next.data != value){
+        while (temp.next != null && temp.next.data != value){
             temp = temp.next
         }
-        if(temp == null){
+        if(temp.next == null){
             console.log("Invalid Value")
             return 
         }
@@ -70,18 +72,25 @@ class LinkedList {
             return 
         }
         let temp = this.head
-        while(temp.next.next !== null){
+        
+        while(temp.next && temp.next.next !== null){
             temp = temp.next
         } 
+        if(temp.next == null){
+            this.head = null
+            this.tail = null
+            return
+        }
         temp.next = null
+        this.tail = temp
         
     }
 }
 const newlist = new LinkedList()
 
-newlist.arrayToLinkedList([1, 2, 3, 4, 5])
+newlist.arrayToLinkedList([1,2,3,4,5])
 // newlist.removeFirstNode()
-newlist.removeValueAt(5)
-// newlist.removeLastNode()
+//newlist.removeValueAt(1)
+//newlist.removeLastNode()
 newlist.display()
 console.log(newlist.tail)

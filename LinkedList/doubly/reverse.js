@@ -27,17 +27,17 @@ class DLL{
       return this.head
     }
      reverse() {
-        let prevNode = null
-        let currNode = this.head
+        // let prevNode = null
+        // let currNode = this.head
 
-        while(currNode != null){
-            prevNode = currNode.prev
-            currNode.prev = currNode.next
-            currNode.next = prevNode
+        // while(currNode != null){
+        //     prevNode = currNode.prev
+        //     currNode.prev = currNode.next
+        //     currNode.next = prevNode
 
-            currNode = currNode.prev
-        }
-        this.head = prevNode.prev
+        //     currNode = currNode.prev
+        // }
+        // this.head = prevNode.prev
     }
     display() {
         let curr = this.head

@@ -60,14 +60,9 @@ class List {
          if(prev == null){
             this.head = this.head.next
          }else{
-            
              prev.next = slow.next
          }
-
-
     }
-
-
 }
 const list = new List()
 list.arrayToLinkedList([1, 2, 3 , 4])

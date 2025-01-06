@@ -85,7 +85,6 @@ class DLL{
             console.log(curr.data)
             curr = curr.next
         }
-
     }
     reverseDisplay(){
         let curr = this.tail

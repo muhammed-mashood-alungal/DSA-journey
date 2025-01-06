@@ -14,7 +14,6 @@ class DLL{
     arrayToList(arr){
       for(let x of arr){
         const newNode = new Node(x)
-
         if(this.head == null){
             this.head = newNode
             this.tail = newNode

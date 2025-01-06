@@ -38,7 +38,6 @@ class DLL{
         }
 
         curr = this.head
-
         while(curr){
             const cloneNode = map.get(curr)
             cloneNode.next = map.get(curr.next) || null

@@ -148,7 +148,6 @@ class DDL {
         if(this.head == null) return
 
         let temp = this.head
-
         while(temp && temp.data != value){
             temp = temp.next
         }
@@ -213,8 +212,7 @@ class DDL {
         if(curr.next){
             curr.next.prev = curr.prev
         }else{
-            this.tail = curr.prev;
-
+            this.tail = curr.prev
         }
     }
 

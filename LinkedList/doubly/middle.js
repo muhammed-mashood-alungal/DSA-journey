@@ -39,8 +39,6 @@ class DLL{
             fast = fast.next.next
         }
         return slow
-        
-
     }
 
     display() {

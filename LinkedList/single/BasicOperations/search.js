@@ -13,7 +13,6 @@ class LinkedList {
     insertAtEnd(value) {
         const newNode = new Node(value)
         if (this.head == null) {
-
             this.head = newNode
             return
         }
@@ -33,7 +32,6 @@ class LinkedList {
         if(this.head == null){
             return true
         }
-
         let temp = this.head
         while(temp != null && temp.data != value){
             temp = temp.next

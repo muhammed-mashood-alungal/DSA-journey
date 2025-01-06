@@ -1,6 +1,6 @@
 function binarySearch(arr, key) {
     let low = 0
-    let high = arr.length
+    let high = arr.length -1 
 
     while (high >= low) {
         mid = low+Math.floor((high - low) / 2)

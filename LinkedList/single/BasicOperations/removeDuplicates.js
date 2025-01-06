@@ -38,7 +38,6 @@ class SLL {
             }else{
                 curr = curr.next
             }
-           
         }
     }
     display() {

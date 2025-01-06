@@ -49,7 +49,7 @@ class LinkedList {
     // Reverse Stack Based Reverse Printing
     stackReversePrinting(node) {
         const stack = []
-
+        
         let temp = node
         while (temp != null) {
             stack.push(temp.data)
