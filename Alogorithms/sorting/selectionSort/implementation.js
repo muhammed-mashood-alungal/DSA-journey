@@ -13,4 +13,5 @@ function selectionSort(arr){
     return arr
 }
 
-console.log(selectionSort([5,4,21,4,3,1,5,4]))
+
+console.log(selectionSort([29, -10, 0, 14, -3, 37, 12]))

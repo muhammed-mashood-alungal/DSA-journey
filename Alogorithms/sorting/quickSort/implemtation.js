@@ -30,4 +30,51 @@ function swap(arr,idx1,idx2){
     arr[idx2] = temp
 }
 
-console.log(quickSort([2,3,1,4,5,6,3,2,1]))
+
+// ============ Pivot as random element
+// function swap(arr, idx1, idx2) {
+//     let temp = arr[idx1]
+//     arr[idx1] = arr[idx2]
+//     arr[idx2] = temp
+// }
+
+// function partition(arr, low, high) {
+
+//     const randomIndex = Math.floor(Math.random() * (high - low + 1)) + low
+
+//     let temp = arr[randomIndex]
+//     arr[randomIndex] = arr[high]
+//     arr[high] = temp
+//     let pivot = temp
+//     let i = low - 1
+
+//     for (let j = low; j < high; j++) {
+//         if (arr[j] < pivot) {
+//             i++
+//             [arr[i], arr[j]] = [arr[j], arr[i]]
+//         }
+//     }
+//     [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]]
+
+//     return i + 1
+
+
+// }
+
+// function quickSort(arr, low = 0, high = arr.length - 1) {
+//     if (low < high) {
+//         let pi = partition(arr, low, high)
+
+//         quickSort(arr, low, pi - 1)
+//         quickSort(arr, pi + 1, high)
+
+//     }
+//     return arr
+// }
+
+
+console.log(quickSort( [3, 6, 8, 10, 1, 2, 1]))
+
+
+
+
