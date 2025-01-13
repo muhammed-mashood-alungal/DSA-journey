@@ -54,9 +54,9 @@
 //     newNode.next = temp.next
 //     temp.next = newNode
 //     return sortedHead
-    
+
 //    }
-    
+
 // }
 // function sortList(head){
 //     let current = head
@@ -76,3 +76,37 @@
 // console.log("+++++++ After Sorting")
 // displayList(sortedHead)
 
+
+/// ========= ? To sort an array of floating-point numbers using Insertion Sort
+// function insertSort(arr) {
+//     for (let i = 1; i < arr.length; i++) {
+//         let j = i - 1
+//         let key = arr[i]
+
+//         while (j >= 0 && key < arr[j]) {
+//             arr[j + 1] = arr[j]
+//             j--
+//         }
+//         arr[j + 1] = key
+//     }
+//     return arr
+// }
+
+// console.log(sort([3.2, 1.5, 4.8, 2.9, 0.4]))
+
+
+// Insert a element to sorted Array
+// function insertElem(arr,elem){
+//         let j = arr.length - 1
+//         let key = elem
+//         arr.length++
+//         while(j >= 0 && arr[j] > key){
+//             arr[j+1] = arr[j]
+//             j--
+//         }
+//         arr[j+1] = key 
+       
+     
+//      return arr
+// }
+// console.log(insertElem([1,2,4,6,7],3))

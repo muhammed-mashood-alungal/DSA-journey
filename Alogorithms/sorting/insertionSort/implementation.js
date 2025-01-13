@@ -13,3 +13,4 @@ function insertionSort(arr){
   return arr
 }
 console.log(insertionSort([5,2,3,4,3,2,42,2,42,32,1]))
+
