@@ -47,7 +47,6 @@
 //    }else{
 
 //     let temp = sortedHead
-
 //     while(temp.next != null && temp.next.data < newNode.data){
 //         temp = temp.next
 //     }
@@ -62,7 +61,7 @@
 //     let current = head
 //     let sortedHead = null
 //     while(current != null){
-//          let  next = current.next
+//           let next = current.next
 
 //           sortedHead = insertInSorted(sortedHead , current)
 

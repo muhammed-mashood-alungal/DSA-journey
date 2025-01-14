@@ -25,30 +25,30 @@
 
 // ===== ? Sort Array of objects based on a key (e.g., age).
 
-function sortArrayOfObjects(arr,key){
-   for(let i =0 ; i < arr.length ; i++){
-      let minIdx = i
+// function sortArrayOfObjects(arr,key){
+//    for(let i =0 ; i < arr.length ; i++){
+//       let minIdx = i
 
-      for(let j = i+1 ; j < arr.length ; j++){
-        if(arr[j][key] < arr[minIdx][key]){
-            minIdx = j
+//       for(let j = i+1 ; j < arr.length ; j++){
+//         if(arr[j][key] < arr[minIdx][key]){
+//             minIdx = j
 
-        }
-      }
-      let temp = arr[i]
-      arr[i] = arr[minIdx]
-      arr[minIdx] = temp
+//         }
+//       }
+//       let temp = arr[i]
+//       arr[i] = arr[minIdx]
+//       arr[minIdx] = temp
     
       
-   }
-   return arr
-}
-const people = [
-    { name: "Alice", age: 25 },
-    { name: "Bob", age: 22 },
-    { name: "Charlie", age: 30 },
-    { name: "Diana", age: 20 }
-];
+//    }
+//    return arr
+// }
+// const people = [
+//     { name: "Alice", age: 25 },
+//     { name: "Bob", age: 22 },
+//     { name: "Charlie", age: 30 },
+//     { name: "Diana", age: 20 }
+// ];
 
-const sortedPeople = sortArrayOfObjects(people, "age");
-console.log("Sorted by age:", sortedPeople);
+// const sortedPeople = sortArrayOfObjects(people, "age");
+// console.log("Sorted by age:", sortedPeople);

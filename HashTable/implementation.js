@@ -10,7 +10,18 @@ class HashTable {
         }
         return hash % max
     }
+    // Polonomial method
+    //    _hash(key) {
+    //     let hash = 0;
+    //     let PRIME = 31;  // A prime number for better distribution
+    //     for (let i = 0; i < key.length; i++) {
+    //         // Hashing each character using the polynomial method
+    //         hash = (hash * PRIME + key.charCodeAt(i)) % this.keyMap.length;
+    //     }
+    //     return hash;
+    // }
 
+    
     add(key, value) {
         let index = this.hash(key, this.size)
         if (this.table[index] == undefined) {
@@ -31,24 +42,24 @@ class HashTable {
 
     remove(key) {
         let index = this.hash(key, this.size)
-        if(this.table[index].length == 1 && this.table[index][0][0] == key){
+        if (this.table[index].length == 1 && this.table[index][0][0] == key) {
             delete this.table[index]
-        }else{
-            for(let i = 0 ; i < this.table[index].length ; i++){
-                if(this.table[index][i][0] == key){
-                    this.table[index].splice(i,1)
+        } else {
+            for (let i = 0; i < this.table[index].length; i++) {
+                if (this.table[index][i][0] == key) {
+                    this.table[index].splice(i, 1)
                 }
             }
         }
     }
 
-    lookup(key){
-        let index = this.hash(key,this.size)
-        if(this.table[index] == undefined){
+    lookup(key) {
+        let index = this.hash(key, this.size)
+        if (this.table[index] == undefined) {
             return undefined
-        }else{
-            for(let i= 0 ; i < this.table[index].length ; i++){
-                if(this.table[index][i][0] == key){
+        } else {
+            for (let i = 0; i < this.table[index].length; i++) {
+                if (this.table[index][i][0] == key) {
                     return this.table[index][i][1]
                 }
             }

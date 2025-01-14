@@ -32,6 +32,7 @@
 // console.log(bubbleSort("brocamp"))
 
 //===== ? Problem to terminate the sorting whenever the array is sorting before all comparisons.
+
 // function detectingEarlyTermination(arr) {
 //     count = 0
 //     for (let i = 0; i < arr.length - 1; i++) {

@@ -13,5 +13,4 @@
 //     return arr
 // }
 
-
-console.log(selectionSort([29, -10, 0, 14, -3, 37, 12]))
+// console.log(selectionSort([29, -10, 0, 14, -3, 37, 12]))

@@ -6,40 +6,39 @@ class Node {
 }
 
 class Stack {
-    constructor (){
+    constructor() {
         this.head = null
     }
 
-    isEmpty(){
+    isEmpty() {
         return this.head === null
     }
 
-    push(value){
+    push(value) {
         const newNode = new Node(value)
 
         newNode.next = this.head
         this.head = newNode
         return this.head
     }
-    pop(){
-        if(this.isEmpty()){
-           console.log("Stack Underflow") 
-           return null
-        }else{
+    pop() {
+        if (this.isEmpty()) {
+            console.log("Stack Underflow")
+            return null
+        } else {
             let temp = this.head
             this.head = this.head.next
 
             temp = null
         }
     }
-    print(){
+    print() {
         let temp = this.head
-        while(temp != null){
-            
+        while (temp != null) {
             console.log(temp.data)
             temp = temp.next
         }
-        
+
     }
 }
 
