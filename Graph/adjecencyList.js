@@ -1,7 +1,7 @@
 
 function addEdge(adj,i,j){
     adj[i].push(j)
-    adj[i].push(i)
+    adj[j].push(i)
 }
 function displayAdjList(adj) {
     for (let i = 0; i < adj.length; i++) {
@@ -13,11 +13,12 @@ function displayAdjList(adj) {
     }
 }
 
-const adj = Array.from({length :5} ,()=>[])
+const adj = Array.from({length :4} ,()=>[])
 
 addEdge(adj, 0, 1);
 addEdge(adj, 0, 2);
 addEdge(adj, 1, 2);
 addEdge(adj, 2, 3);
+
 console.log("Adjacency List Representation:");
 displayAdjList(adj);

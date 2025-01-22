@@ -1,3 +1,5 @@
+
+
 function addEdge(mat,i,j){
     mat[i][j] = 1
     mat[j][i] = 1
@@ -19,3 +21,4 @@ addEdge(mat, 2, 3);
 
 console.log("Adjacency Matrix:")
 displayMatrix(mat)
+
