@@ -32,7 +32,7 @@ function heapSort(arr){
         heapify(arr,i,0)
     }
     return arr
-    
+
 }
-const arr=[7, 2, 9, 2, 7]
+const arr = [7, 2, 9, 2, 7]
 console.log(heapSort(arr))

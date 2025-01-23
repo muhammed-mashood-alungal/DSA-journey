@@ -1,32 +1,42 @@
-function detect(node , adj , visited , parent){
-    visited[node] = true
-    for(let neighbor of adj[node]){
-        if(!visited[neighbor]){
-            if (detect(neighbor, adj, visited, node)) {
-                return true;
-            }
-        }else if(parent !== neighbor){
+function detect(node, adj, visited, parent) {
+    visited.add(node)
+
+    for (let neighbor of adj[node]) {
+        if (!visited.has(neighbor)) {
+            detect(neighbor, adj, visited, node)
+        } else if (visited.has(neighbor) && parent != neighbor) {
             return true
         }
     }
     return false
 }
-function isCycle(adj){
-    const visited = new Array(adj.length).fill(false)
-
-    for(let i = 0 ; i < adj.length ; i++){
-        if(!visited[i]){
-            if(detect(i,adj,visited, -1) == true) return true
+function isCycle(adj) {
+    const visited = new Set()
+    for (let node in adj) {
+        if (!visited.has(node)) {
+            if (detect(node, adj, visited, -1) == true) return true
         }
     }
     return false
 }
 
-const graph = [
-    [1, 2],  // Node 0 connects to 1 and 2
-    [0, 2],  // Node 1 connects to 0 and 2
-    [0, 1, 3], // Node 2 connects to 0, 1, and 3
-    [2]      // Node 3 connects to 2
-];
+const adjacencyList = {
+    "A": ["B", "C"],
+    "B": ["A", "D"],
+    "C": ["A", "D"],
+    "D": ["B", "C", "E"],
+    "E": ["D", "F"],
+    "F": ["E"]
+};
 
-console.log(isCycle(graph)); 
+// const acyclicAdjacencyList = {
+//     "A": ["B", "C"],
+//     "B": ["A", "D"],
+//     "C": ["A", "E"],
+//     "D": ["B"],
+//     "E": ["C", "F"],
+//     "F": ["E"]
+// };
+
+
+console.log(isCycle(adjacencyList)); 

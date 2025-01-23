@@ -56,6 +56,7 @@ class BST {
         return res
     }
 
+
     /// Using Recursive Method
     findClosestValueRecursion(node, target) {
         return this.findClosestValueRecursionHelper(node, target, node.data)
@@ -87,6 +88,17 @@ class BST {
         return Math.max(left, right) + 1
     }
 
+    depth(nodeValue, node = this.root, depth = 0) {
+        if (node == null) return -1
+        if (node.data == nodeValue) return depth
+        let leftDepth = this.depth(nodeValue, node.left, depth + 1)
+        if (leftDepth != -1) {
+            return leftDepth
+        }
+        return this.depth(nodeValue, node.right, depth + 1)
+    }
+
+
 
 }
 const bst = new BST()
@@ -95,6 +107,7 @@ bst.add(23)
 bst.add(45)
 bst.add(1)
 bst.add(4)
-console.log("height : "+bst.height())
+console.log("height : " + bst.height())
+console.log("depth of 45 : "+bst.depth(45))
 console.log(bst.findClosestValue(bst.root, 0))
 console.log(bst.findClosestValueRecursion(bst.root, 0))

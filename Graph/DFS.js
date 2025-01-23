@@ -70,3 +70,31 @@
 // const dfsResultAdjMatrix = dfsAdjMatrix(mat, 0);
 // console.log("DFS Traversal (Adjacency Matrix):", dfsResultAdjMatrix);
 
+function dfs(adjacencyList,src){
+ 
+
+    const visited = new Set()
+
+    function dfsHelper(node){
+       visited.add(node)
+       console.log(node)
+
+       for(let nieghbor of adjacencyList[node]){
+        if(!visited.has(nieghbor)){
+            dfsHelper(nieghbor)
+        }
+       }
+    }
+    dfsHelper(src)
+    return
+    
+}
+
+const adjacencyList = {
+    "A" : ["B","C"],
+    "B" : ["A"],
+    "C" : ["A","D"],
+    "D" : ["C"]
+}
+
+dfs(adjacencyList,"A")

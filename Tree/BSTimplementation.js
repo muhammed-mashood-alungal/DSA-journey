@@ -16,25 +16,26 @@ class BST {
             this.root = new Node(data)
             return
         } else {
-            function addToTree(node) {
-                if (data < node.data) {
-                    if (node.left == null) {
-                        node.left = new Node(data)
-                        return
-                    } else if (node.left !== null) {
-                        return addToTree(node.left)
-                    }
-                } else {
-                    if (node.right == null) {
-                        node.right = new Node(data)
-                        return
-                    } else {
-                        return addToTree(node.right)
-                    }
-                } 
-
+           
+            function addToTree(node){
+                if(data < node.data){
+                   if(node.left == null){
+                    node.left = new Node(data)
+                    return
+                   }else if(node.left != null){
+                     return addToTree(node.left)
+                   }
+                }else if(data > node.data){
+                   if(node.right === null){
+                    node.right = new Node(data)
+                   }else if(node.right != null){
+                    return addToTree(node.right)
+                   }
+                }else{
+                    return null
+                }
             }
-            return addToTree(node)
+             return addToTree(node)
         }
     }
     findMin() {
@@ -95,11 +96,11 @@ class BST {
         }
         return node;
     }
-    displayInOrder(root){
-       if(root === null) return
-       this.displayInOrder(root.left)
-       console.log(root.data)
-       this.displayInOrder(root.right)
+    displayInOrder(root) {
+        if (root === null) return
+        this.displayInOrder(root.left)
+        console.log(root.data)
+        this.displayInOrder(root.right)
 
     }
 }
@@ -109,7 +110,6 @@ bst.add(23)
 bst.add(45)
 bst.add(1)
 bst.add(4)
-bst.add(12)
 // bst.remove(1)
 // bst.remove(12)
 // bst.remove(45)

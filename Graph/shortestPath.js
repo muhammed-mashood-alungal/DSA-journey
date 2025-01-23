@@ -168,31 +168,31 @@ class Graph {
         this.adj = Array.from({ length: V }, () => [])
     }
 
-    addEdge( u, v, w) {
+    addEdge(u, v, w) {
         this.adj[u].push([v, w])
         this.adj[v].push([u, w])
     }
-   
+
     shortestPath(src) {
-        const pq =[]
+        const pq = []
         const dist = new Array(this.adj.length).fill(Infinity)
         // PQ be like ["distance","node"]
-        pq.push([0,src])
+        pq.push([0, src])
         dist[src] = 0
 
-        while(pq.length > 0){
+        while (pq.length > 0) {
             let node = pq[0][1]
             pq.shift()
 
-            for(let i = 0 ; i < this.adj[node].length ; i++){
+            for (let i = 0; i < this.adj[node].length; i++) {
                 let nieghbor = this.adj[node][i][0]
                 let weight = this.adj[node][i][1]
 
-                if(dist[nieghbor] > dist[node] + weight){
+                if (dist[nieghbor] > dist[node] + weight) {
                     dist[nieghbor] = dist[node] + weight
-                    pq.push([dist[nieghbor],nieghbor])
-                    pq.sort((a,b)=>{
-                        if(a[0] == b[0]) return a[1] - b[1]
+                    pq.push([dist[nieghbor], nieghbor])
+                    pq.sort((a, b) => {
+                        if (a[0] == b[0]) return a[1] - b[1]
                         return a[0] - b[0]
                     })
                 }
@@ -200,11 +200,11 @@ class Graph {
             }
 
         }
-        for (let i = 0; i < this.adj.length; ++i){
+        for (let i = 0; i < this.adj.length; ++i) {
             console.log(i, "        ", dist[i]);
         }
     }
-     
+
 }
 let g = new Graph(9);
 g.addEdge(0, 1, 4);
@@ -221,6 +221,4 @@ g.addEdge(5, 6, 2);
 g.addEdge(6, 7, 1);
 g.addEdge(6, 8, 6);
 g.addEdge(7, 8, 7);
-
-// Function call
 g.shortestPath(0);
