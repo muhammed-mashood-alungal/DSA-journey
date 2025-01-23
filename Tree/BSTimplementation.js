@@ -24,16 +24,14 @@ class BST {
                     } else if (node.left !== null) {
                         return addToTree(node.left)
                     }
-                } else if (data > node.data) {
+                } else {
                     if (node.right == null) {
                         node.right = new Node(data)
                         return
                     } else {
                         return addToTree(node.right)
                     }
-                } else {
-                    return null
-                }
+                } 
 
             }
             return addToTree(node)
@@ -97,6 +95,13 @@ class BST {
         }
         return node;
     }
+    displayInOrder(root){
+       if(root === null) return
+       this.displayInOrder(root.left)
+       console.log(root.data)
+       this.displayInOrder(root.right)
+
+    }
 }
 const bst = new BST()
 bst.add(12)
@@ -104,7 +109,10 @@ bst.add(23)
 bst.add(45)
 bst.add(1)
 bst.add(4)
-bst.remove(1)
-bst.remove(45)
-console.log(bst.findMin().data)
-console.log(bst.findMax().data)
+bst.add(12)
+// bst.remove(1)
+// bst.remove(12)
+// bst.remove(45)
+// console.log(bst.findMin().data)
+// console.log(bst.findMax().data)
+bst.displayInOrder(bst.root)

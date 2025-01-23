@@ -58,23 +58,34 @@ class BST {
 
     /// Using Recursive Method
     findClosestValueRecursion(node, target) {
-      return  this.findClosestValueRecursionHelper(node, target, node.data)
+        return this.findClosestValueRecursionHelper(node, target, node.data)
     }
     findClosestValueRecursionHelper(node, target, closest) {
-       if(node == null){
-        return closest
-       }
-       if(Math.abs(target - node.data) < Math.abs(target - closest)){
-        closest = node.data
-       }
-       if(target <node.data ){
-        return this.findClosestValueRecursionHelper(node.left , target , closest)
-       }else if(node.data > target){
-        return this.findClosestValueRecursionHelper(node.right , target , closest)
-       }else{
-        return closest
-       }
-    }   
+        if (node == null) {
+            return closest
+        }
+        if (Math.abs(target - node.data) < Math.abs(target - closest)) {
+            closest = node.data
+        }
+        if (target < node.data) {
+            return this.findClosestValueRecursionHelper(node.left, target, closest)
+        } else if (node.data > target) {
+            return this.findClosestValueRecursionHelper(node.right, target, closest)
+        } else {
+            return closest
+        }
+    }
+
+    height(node = this.root) {
+        if (node == null) {
+            return -1
+        }
+
+        let left = this.height(node.left)
+        let right = this.height(node.right)
+
+        return Math.max(left, right) + 1
+    }
 
 
 }
@@ -84,6 +95,6 @@ bst.add(23)
 bst.add(45)
 bst.add(1)
 bst.add(4)
-
+console.log("height : "+bst.height())
 console.log(bst.findClosestValue(bst.root, 0))
 console.log(bst.findClosestValueRecursion(bst.root, 0))
