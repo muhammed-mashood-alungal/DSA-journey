@@ -46,7 +46,6 @@ class BST {
             if (Math.abs(target - node.data) < Math.abs(target - res)) {
                 res = node.data
             }
-
             if (target < node.data) {
                 node = node.left
             } else {

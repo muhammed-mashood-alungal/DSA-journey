@@ -14,7 +14,7 @@ function dfsInorder(node) {
     dfsInorder(node.right)
 }
 
-//1.2 DFs Pre-Order traversal
+//1.2 DFS Pre-Order traversal
 function dfsPreorder(node) {
     if (node == null) return
     console.log(node.data)

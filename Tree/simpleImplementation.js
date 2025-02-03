@@ -7,8 +7,6 @@ class TreeNode {
     addChild(child){
         this.children.push(child)
     }
-
-
 }
 class Tree {
     constructor(rootValue){
