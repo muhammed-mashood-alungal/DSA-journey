@@ -9,7 +9,7 @@ class LinkedList {
         this.head = null
         this.tail = null
     }
-    
+
     insertAtEnd(value) {
         const newNode = new Node(value)
         if (this.head == null) {
@@ -39,58 +39,48 @@ class LinkedList {
         }
     }
 
-    removeFirstNode(){
-        if(this.head == null) return 
+    removeFirstNode() {
+        if (this.head == null) return null
         this.head = this.head.next
+        return this.head
     }
-
-    removeValueAt(value){   
-        if(this.head == null){
-            return 
-        }
-        if(this.head.data == value){
-           this.head = this.head.next
+    removeValueAt(target) {
+        if (this.head.data == target) {
+            this.head = this.head.next
             return
         }
         let temp = this.head
-        while (temp.next != null && temp.next.data != value){
+        while (temp.next != null && temp.next.data != target) {
             temp = temp.next
         }
-        if(temp.next == null){
-            console.log("Invalid Value")
-            return 
+        if (temp.next == null) {
+            console.log('No such a value')
+            return
         }
 
-         temp.next = temp.next.next
-         if(temp.next == null){
-            this.tail = temp
-         }
+        temp.next = temp.next.next
+
     }
 
-    removeLastNode(){
-        if(this.head == null){
-            return 
-        }
+    removeLastNode() {
+        if (this.head == null) return null
         let temp = this.head
-        
-        while(temp.next && temp.next.next !== null){
-            temp = temp.next
-        } 
-        if(temp.next == null){
+
+        if (temp.next == null) {
             this.head = null
-            this.tail = null
             return
+        }
+
+        while (temp.next.next != null) {
+            temp = temp.next
         }
         temp.next = null
-        this.tail = temp
-        
     }
 }
 const newlist = new LinkedList()
 
-newlist.arrayToLinkedList([1,2,3,4,5])
+newlist.arrayToLinkedList([1, 2, 3, 4, 5])
 // newlist.removeFirstNode()
-//newlist.removeValueAt(1)
-//newlist.removeLastNode()
+// newlist.removeValueAt(2)
+newlist.removeLastNode()
 newlist.display()
-console.log(newlist.tail)

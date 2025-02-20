@@ -36,7 +36,7 @@ class LinkedList {
             temp = temp.next
         }
     }
-    /// Reverse Print Using Recursion
+  
     recursionReversePrint(node) {
         if (node == null) {
             return
@@ -61,13 +61,13 @@ class LinkedList {
         }
 
     }
-
-
+    
+    
 }
 const newlist = new LinkedList()
 
 newlist.arrayToLinkedList([1, 2, 3, 4, 5])
 //newlist.display()
-//newlist.recursionReversePrint(newlist.head)
-newlist.stackReversePrinting(newlist.head)
+newlist.recursionReversePrint(newlist.head)
+//newlist.stackReversePrinting(newlist.head)
 

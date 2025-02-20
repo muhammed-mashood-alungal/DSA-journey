@@ -47,6 +47,7 @@ class List {
        }
        this.head = prev
     }
+    
 }
 const list = new List()
 list.arrayToLinkedList([1, 2, 3, 4, 5])

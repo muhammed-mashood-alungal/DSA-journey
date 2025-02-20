@@ -1,6 +1,6 @@
 class MaxHeap {
     constructor() {
-        this.arr = new Array();
+        this.arr = new Array()
     }
 
     parent(i) {
@@ -29,8 +29,8 @@ class MaxHeap {
     }
 
     heapify(idx) {
-        let li = this.left(idx);
-        let ri = this.right(idx);
+        let li = this.left(idx)
+        let ri = this.right(idx)
         let largest = idx;
 
         if (li < this.arr.length && this.arr[li] > this.arr[largest]) {
@@ -40,7 +40,6 @@ class MaxHeap {
         if (ri < this.arr.length && this.arr[ri] > this.arr[largest]) {
             largest = ri;
         }
-
         if (largest != idx) {
             [this.arr[largest], this.arr[idx]] = [this.arr[idx], this.arr[largest]];
             this.heapify(largest);

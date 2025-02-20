@@ -7,12 +7,15 @@ class Node {
     containsKey(ch) {
         return this.keys[ch.charCodeAt(0) - 'a'.charCodeAt(0)] != undefined
     }
+
     put(ch, node) {
         this.keys[ch.charCodeAt(0) - 'a'.charCodeAt(0)] = node
     }
+
     get(ch) {
         return this.keys[ch.charCodeAt(0) - 'a'.charCodeAt(0)]
     }
+    
     setEnd() {
         this.flag = true
     }

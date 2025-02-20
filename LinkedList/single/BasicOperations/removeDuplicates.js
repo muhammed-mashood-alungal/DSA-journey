@@ -31,7 +31,6 @@ class SLL {
     //Write a program to remove duplicates in a sorted singly linked list
     removeDuplicates() {
         let curr = this.head
-
         while (curr != null && curr.next != null) {
             if(curr.data == curr.next.data){
                 curr.next = curr.next.next
@@ -40,6 +39,8 @@ class SLL {
             }
         }
     }
+
+
     display() {
         let temp = this.head
         while (temp != null) {

@@ -8,8 +8,7 @@ class Stack {
 
     push(x){
         this.q2.push(x)
-
-        while(this.q1.length >0){
+        while(this.q1.length > 0){
             this.q2.push(this.q1[0])
             this.q1.shift()
         }

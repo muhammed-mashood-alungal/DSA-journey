@@ -12,7 +12,7 @@ class SLL{
     }
     hasCycle(){
        let slow = this.head
-       let fast = this.head
+       let fast = this.head 
     
        while(fast != null && fast.next !== null){
         slow = slow.next

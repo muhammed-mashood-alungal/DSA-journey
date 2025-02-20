@@ -33,32 +33,26 @@ class List {
             temp = temp.next
         }
     }
-    isPalindrome(){
-        let curr = this.head 
+    isPalindrome() {
+        let curr = this.head
         let stack = []
-        while(curr != null){
+        while (curr != null) {
             stack.push(curr.data)
-            curr= curr.next
+            curr = curr.next
         }
-        
 
-        while(stack.length >0){
-        
-
-             curr = this.head 
-             while(curr != null){
-                if(curr.data != stack.pop()){
-                    return false
-                }
-                curr = curr.next
-             }
-
-             return true
+        curr = this.head
+        while (curr != null) {
+            if (curr.data != stack.pop()) {
+                return false
+            }
+            curr = curr.next
         }
+        return true
     }
 }
 const list = new List()
-list.arrayToLinkedList([1, 2, w1])
+list.arrayToLinkedList([1, 2, 1])
 
 list.display()
 console.log(list.isPalindrome())

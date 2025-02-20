@@ -25,8 +25,6 @@ class Tree {
             this.display(child, depth + 1);
         }
     }
-    
-   
 }
 
 const myTree = new Tree("Root");

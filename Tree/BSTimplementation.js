@@ -28,6 +28,7 @@ class BST {
                 }else if(data > node.data){
                    if(node.right === null){
                     node.right = new Node(data)
+                    return
                    }else if(node.right != null){
                     return addToTree(node.right)
                    }
@@ -35,7 +36,7 @@ class BST {
                     return null
                 }
             }
-             return addToTree(node)
+            return addToTree(node)
         }
     }
     findMin() {

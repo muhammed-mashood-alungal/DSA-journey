@@ -9,7 +9,6 @@ class Graph {
             this.adjacencyList[vertex] = [];
         }
     }
-
     addEdge(v1, v2) {
         if (this.adjacencyList[v1] && this.adjacencyList[v2]) {
             if (!this.adjacencyList[v1].includes(v2)) {
