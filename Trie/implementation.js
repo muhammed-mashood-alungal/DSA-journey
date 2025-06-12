@@ -24,7 +24,7 @@ class Node {
 class Trie {
     constructor() {
         this.root = new Node()
-    }
+    } 
 
     insert(word) {
         let node = this.root

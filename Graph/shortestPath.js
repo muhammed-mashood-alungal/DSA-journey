@@ -222,3 +222,108 @@ g.addEdge(6, 7, 1);
 g.addEdge(6, 8, 6);
 g.addEdge(7, 8, 7);
 g.shortestPath(0);
+
+
+
+
+
+////////////// FINAL CODE
+class MinHeap {
+  constructor() {
+    this.heap = [];
+  }
+
+  insert(node, priority) {
+    this.heap.push({ node, priority });
+    this._bubbleUp();
+  }
+
+  extractMin() {
+    if (this.heap.length === 1) return this.heap.pop();
+    const min = this.heap[0];
+    this.heap[0] = this.heap.pop();
+    this._bubbleDown();
+    return min;
+  }
+
+  _bubbleUp() {
+    let index = this.heap.length - 1;
+    while (index > 0) {
+      let parent = Math.floor((index - 1) / 2);
+      if (this.heap[parent].priority <= this.heap[index].priority) break;
+      [this.heap[parent], this.heap[index]] = [this.heap[index], this.heap[parent]];
+      index = parent;
+    }
+  }
+
+  _bubbleDown() {
+    let index = 0;
+    const length = this.heap.length;
+    while (true) {
+      let left = 2 * index + 1;
+      let right = 2 * index + 2;
+      let smallest = index;
+
+      if (left < length && this.heap[left].priority < this.heap[smallest].priority)
+        smallest = left;
+      if (right < length && this.heap[right].priority < this.heap[smallest].priority)
+        smallest = right;
+
+      if (smallest === index) break;
+      [this.heap[index], this.heap[smallest]] = [this.heap[smallest], this.heap[index]];
+      index = smallest;
+    }
+  }
+
+  isEmpty() {
+    return this.heap.length === 0;
+  }
+}
+
+
+function dijkstra(src , graph){
+    const distances= {}
+    const visited ={}
+    const minHeap =new MinHeap()
+    
+    for(let node in graph){
+        distances[node] = Infinity
+    }
+    distances[src] = 0
+    minHeap.insert(src , 0)
+    while(!minHeap.isEmpty()){
+        const {node,priority}  = minHeap.extractMin()
+        if(visited[node]) continue
+        visited[node] = true
+        
+        for(let [neighbour , weight] of graph[node]){
+            let newDist = priority + weight
+            if(newDist < distances[neighbour]){
+                distances[neighbour] = newDist
+                 minHeap.insert(neighbour, newDist);
+            }
+        }
+    }
+    return distances
+}
+
+
+
+
+
+
+
+
+
+
+
+
+const graph = {
+    'A': [['B',3],['C',2]],
+    'B':[['E',1]],
+    'C': [['E',3]],
+    'D': [['C',2]],
+    'E':[]
+}
+
+console.log(dijkstra('A',graph))
