@@ -228,7 +228,7 @@ g.shortestPath(0);
 
 
 ////////////// FINAL CODE
-class MinHeap {
+class MinHeap { 
   constructor() {
     this.heap = [];
   }
@@ -306,17 +306,6 @@ function dijkstra(src , graph){
     }
     return distances
 }
-
-
-
-
-
-
-
-
-
-
-
 
 const graph = {
     'A': [['B',3],['C',2]],
