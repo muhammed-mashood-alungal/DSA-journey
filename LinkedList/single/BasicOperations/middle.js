@@ -35,16 +35,16 @@ class List {
     }
     
     findMiddle(){
-        if(this.head == null) return null
         let slow = this.head
         let fast = this.head
-
-        while(fast.next!= null && fast.next.next != null){
-            slow = slow.next
+        
+        while(fast.next != null && fast.next.next != null){
             fast = fast.next.next
+            slow = slow.next
         }
         return slow.data
     }
+    
     findAndDeleteMiddle(){
         if(this.head == null) return null
 

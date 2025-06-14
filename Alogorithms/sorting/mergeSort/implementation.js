@@ -1,40 +1,45 @@
-// function mergeSort(arr, low = 0, high = arr.length - 1) {
-
-//     if (low >= high) return arr
-
-//     let mid = Math.floor((low + high) / 2)
-//     mergeSort(arr, low, mid)
-//     mergeSort(arr, mid + 1, high)
-//     merge(arr, low, mid, high)
+// function mergeSort(arr , low=0 , high= arr.length-1){
+    
+//     if(low >= high){
+//         return arr
+//     }
+    
+//     const mid = Math.floor((high + low)/2)
+//     mergeSort(arr , low , mid)
+//     mergeSort(arr , mid + 1 , high)
+//      merge(arr , low , mid , high)
+//      return arr
 // }
 
-// function merge(arr, low, mid, high) {
+// function merge(arr , low , mid , high){
 //     let i = low
-//     let j = mid + 1
-//     let temp = []
-//     while (i <= mid && j <= high) {
-//         if (arr[i] < arr[j]) {
+//     let j = mid+1
+//     const temp = []
+//     while(i <= mid && j <= high){
+//         if(arr[i] < arr[j]){
 //             temp.push(arr[i])
 //             i++
-//         } else {
+//         }else{
 //             temp.push(arr[j])
 //             j++
 //         }
 //     }
-//     while (i <= mid) {
+//     while(i <= mid){
 //         temp.push(arr[i])
 //         i++
 //     }
-//     while (j <= high) {
+    
+//     while(j <= high){
 //         temp.push(arr[j])
 //         j++
 //     }
-//     for (let k = 0; k < temp.length; k++) {
-//         arr[low + k] = temp[k];
+    
+//     for(let k = 0 ; k< temp.length ; k++){
+//         arr[low+k] = temp[k]
 //     }
+    
 // }
-
-
+// console.log(mergeSort(array))
 
 function mergeSort(arr, low = 0, high = arr.length - 1) {
     if (low >= high) return arr
@@ -43,7 +48,7 @@ function mergeSort(arr, low = 0, high = arr.length - 1) {
     mergeSort(arr, low, mid)
     mergeSort(arr, mid + 1, high)
 
-    returnmerge(arr, low, mid, high)
+    return merge(arr, low, mid, high)
 }
 function merge(arr, low, mid, high) {
     let i = low

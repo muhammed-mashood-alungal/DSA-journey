@@ -1,35 +1,44 @@
-// class Queue {
-//     constructor() {
-//         this.stack1 = [] // for enquue
-//         this.stack2 = []  // for dequeue
-//     }
-//     enqueue(x) {
-//         this.stack1.push(x)
-//     }
-//     dequeue() {
-//         if(this.stack2.length == 0 ){
-//             while (this.stack1.length > 0) {
-//                 this.stack2.push(this.stack1.pop())
-//             }
-//         }
-//         return this.stack2.length ? this.stack2.pop() : null
-//     }
-//     front(){
-//         if(this.stack2.length == 0 ){
-//             while (this.stack1.length > 0) {
-//                 this.stack2.push(this.stack1.pop())
-//             }
-//         }
-//         return this.stack2.length ? this.stack2[this.stack2.length - 1] : null
-//     }
-// }
-// const queue =new Queue()
-// queue.enqueue(10)
-// queue.enqueue(20)
-// queue.enqueue(30)
-// console.log(queue.dequeue())
-// console.log(queue.dequeue())
-// console.log(queue.dequeue())
+class Queue{
+    constructor(){
+        this.input = []
+        this.output = []
+    }
+    
+    push(val){
+        this.input.push(val)
+    }
+
+    pop(){
+        if(this.output.length != 0 ){
+            return this.output.pop()
+        }else{
+            while(this.input.length > 0 ){
+                this.output.push(this.input.pop())
+            }
+            return this.output.pop()
+        }
+    }
+    
+    top(){
+        if(this.output.length == 0){
+            while(this.input.length > 0 ){
+                this.output.push(this.input.pop())
+            }
+        }
+        return this.output[this.output.length-1]
+    }
+}
+
+
+const q = new Queue()
+q.push(10)
+q.push(20)
+q.push(1)
+q.push(310)
+console.log(q.top())
+console.log(q.pop())
+console.log(q.top())
+
 
 
 
@@ -70,15 +79,15 @@ class Queue {
 }
 
 // ✅ Test Cases
-let q = new Queue();
-q.push(1);
-q.push(2);
-q.push(3);
-console.log(q.front());  // Output: 1
-console.log(q.pop());    // Output: 1
-console.log(q.front());  // Output: 2
-console.log(q.pop());    // Output: 2
-console.log(q.front());  // Output: 3
-console.log(q.pop());    // Output: 3
-console.log(q.isEmpty()); // Output: true
-console.log(q.pop());    // Output: -1 (Queue is empty)
+let queue = new Queue();
+queue.push(1);
+queue.push(2);
+queue.push(3);
+console.log(queue.front());  // Output: 1
+console.log(queue.pop());    // Output: 1
+console.log(queue.front());  // Output: 2
+console.log(queue.pop());    // Output: 2
+console.log(queue.front());  // Output: 3
+console.log(queue.pop());    // Output: 3
+console.log(queue.isEmpty()); // Output: true
+console.log(queue.pop());    // Output: -1 (Queue is empty)

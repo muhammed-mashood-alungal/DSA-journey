@@ -120,7 +120,7 @@ class DDL {
         }
 
         if(!temp){
-            return console.log("invalid input")
+            return console.log("Invalid Input")
         }
 
         newNode.next = temp
@@ -257,7 +257,6 @@ class DDL {
             console.log(curr.data)
             curr = curr.prev
         }
-
     }
     
 
